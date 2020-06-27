@@ -14,6 +14,8 @@ import { TeacherComponent } from './Section/teacher/teacher.component';
 import { TestimonialsComponent } from './Section/testimonials/testimonials.component';
 import { StatisticsComponent } from './Section/statistics/statistics.component';
 import { TeamComponent } from './Section/team/team.component';
+import { SubcribeComponent } from './Section/subcribe/subcribe.component';
+import { FooterComponent } from './Section/footer/footer.component';
 
 
 
@@ -31,6 +33,8 @@ import { TeamComponent } from './Section/team/team.component';
     TestimonialsComponent,
     StatisticsComponent,
     TeamComponent,
+    SubcribeComponent,
+    FooterComponent,
 
  
   ],
