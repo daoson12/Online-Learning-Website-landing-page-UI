@@ -9,13 +9,12 @@ import { BannerComponent } from './Layout/banner/banner.component';
 import { BannerSliderComponent } from './Layout/banner-slider/banner-slider.component';
 import { BannerFormComponent } from './Layout/banner-form/banner-form.component';
 import { AboutComponent } from './Section/about/about.component';
-import { ServiceComponent } from './Section/service/service.component';
-import { TeacherComponent } from './Section/teacher/teacher.component';
-import { TestimonialsComponent } from './Section/testimonials/testimonials.component';
+import { ServiceComponent } from './Section/service/service.component'
 import { StatisticsComponent } from './Section/statistics/statistics.component';
-import { TeamComponent } from './Section/team/team.component';
 import { SubcribeComponent } from './Section/subcribe/subcribe.component';
 import { FooterComponent } from './Section/footer/footer.component';
+import { InstructorsComponent } from './Section/instructors/instructors.component';
+import { ContactComponent } from './Section/contact/contact.component';
 
 
 
@@ -29,12 +28,11 @@ import { FooterComponent } from './Section/footer/footer.component';
     BannerFormComponent,
     AboutComponent,
     ServiceComponent,
-    TeacherComponent,
-    TestimonialsComponent,
     StatisticsComponent,
-    TeamComponent,
     SubcribeComponent,
     FooterComponent,
+    InstructorsComponent,
+    ContactComponent,
 
  
   ],

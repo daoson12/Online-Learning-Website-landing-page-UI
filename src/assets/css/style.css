@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
 html,
 body {
     margin: 0;
@@ -13,8 +14,9 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
+
 body a {
     text-decoration: none;
     transition: 0.5s all;
@@ -22,7 +24,6 @@ body a {
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
-
 }
 
 body img {
@@ -57,7 +58,7 @@ h6 {
 
 p {
     margin: 0;
-	font-size: 15px;
+    font-size: 15px;
     line-height: 2em;
     letter-spacing: 1px;
     color: #666;
@@ -68,36 +69,46 @@ ul {
     padding: 0;
 }
 
+
 /*-- header --*/
 
 header {
     position: absolute;
     width: 100%;
     padding: 15px 0;
-	z-index: 9;
+    z-index: 9;
 }
-.right-p li ,.right-p li  a{
+
+.right-p li,
+.right-p li a {
     display: inline-block;
     color: #ddd;
     font-size: 15px;
     letter-spacing: 2px;
 }
-.right-p li  span{
+
+.right-p li span {
     color: #fff;
 }
+
+
 /*-- header --*/
 
 .toggle,
 [id^=drop] {
-	display: none;
+    display: none;
 }
 
+
 /* Giving a background-color to the nav container. */
-nav { 
-	margin:0;
-	padding: 0;
+
+nav {
+    margin: 0;
+    padding: 0;
 }
-#logo img, .footer-title img {
+
+#logo img,
+.footer-title img {
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -107,7 +118,7 @@ nav {
 }
 
 #logo a {
-	float: left;
+    float: left;
     font-size: .75em;
     font-weight: 600;
     display: initial;
@@ -118,6 +129,7 @@ nav {
     border: none;
     text-transform: capitalize;
 }
+
 #logo a span.fa {
     color: #ff4f81;
 }
@@ -127,254 +139,510 @@ nav {
  * we need to add a clear after the container. */
 
 nav:after {
-	content:"";
-	display:table;
-	clear:both;
+    content: "";
+    display: table;
+    clear: both;
 }
+
 
 /* Removing padding, margin and "list-style" from the "ul",
  * and adding "position:reltive" */
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+
+
+/* Nav Menu Essentials */
+
+.nav-menu,
+.nav-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu ul {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+}
+
+.nav-menu li {
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-menu>li {
+    float: left;
+}
+
+.nav-menu li:hover>ul,
+.nav-menu li.sfHover>ul {
+    display: block;
+}
+
+.nav-menu ul ul {
+    top: 0;
+    left: 100%;
+}
+
+.nav-menu ul li {
+    min-width: 180px;
+}
+
+
+/* Nav Menu Arrows */
+
+.sf-arrows .sf-with-ul {
+    padding-right: 30px;
+}
+
+.sf-arrows .sf-with-ul:after {
+    content: "\f107";
+    position: absolute;
+    right: 15px;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.sf-arrows ul .sf-with-ul:after {
+    content: "\f105";
+}
+
+
+/* Nav Meu Container */
+
+#nav-menu-container {
+    float: right;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #nav-menu-container {
+        display: none;
+    }
+}
+
+
+/* Nav Meu Styling */
+
+.nav-menu a {
+    padding: 0 8px 10px 8px;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    outline: none;
+}
+
+.nav-menu>li {
+    margin-left: 10px;
+}
+
+.nav-menu ul {
+    margin: 4px 0 0 0;
+    padding: 10px;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    background: #fff;
+}
+
+.nav-menu ul li {
+    transition: 0.3s;
+}
+
+.nav-menu ul li a {
+    padding: 10px;
+    color: #333;
+    transition: 0.3s;
+    display: block;
+    font-size: 13px;
+    text-transform: none;
+}
+
+.nav-menu ul li:hover>a {
+    color: #1dc8cd;
+}
+
+.nav-menu ul ul {
+    margin: 0;
+}
+
+
+/* Mobile Nav Toggle */
+
+#mobile-nav-toggle {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999;
+    margin: 20px 20px 0 0;
+    border: 0;
+    background: none;
+    font-size: 24px;
+    display: none;
+    transition: all 0.4s;
+    outline: none;
+    cursor: pointer;
+}
+
+#mobile-nav-toggle i {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    #mobile-nav-toggle {
+        display: inline;
+    }
+}
+
+
+/* Mobile Nav Styling */
+
+#mobile-nav {
+    position: fixed;
+    top: 0;
+    padding-top: 18px;
+    bottom: 0;
+    z-index: 998;
+    background: rgba(52, 59, 64, 0.9);
+    left: -260px;
+    width: 260px;
+    overflow-y: auto;
+    transition: 0.4s;
+}
+
+#mobile-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#mobile-nav ul li {
+    position: relative;
+}
+
+#mobile-nav ul li a {
+    color: #fff;
+    font-size: 16px;
+    overflow: hidden;
+    padding: 10px 22px 10px 15px;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    outline: none;
+}
+
+#mobile-nav ul li a:hover {
+    color: #fff;
+}
+
+#mobile-nav ul li li {
+    padding-left: 30px;
+}
+
+#mobile-nav ul .menu-has-children i {
+    position: absolute;
+    right: 0;
+    z-index: 99;
+    padding: 15px;
+    cursor: pointer;
+    color: #fff;
+}
+
+#mobile-nav ul .menu-has-children i.fa-chevron-up {
+    color: #1dc8cd;
+}
+
+#mobile-nav ul .menu-item-active {
+    color: #1dc8cd;
+}
+
+#mobile-body-overly {
+    width: 100%;
+    height: 100%;
+    z-index: 997;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(52, 59, 64, 0.9);
+    display: none;
+}
+
+
+/* Mobile Nav body classes */
+
+body.mobile-nav-active {
+    overflow: hidden;
+}
+
+body.mobile-nav-active #mobile-nav {
+    left: 0;
+}
+
+body.mobile-nav-active #mobile-nav-toggle {
+    color: #fff;
+}
+
 nav ul {
-	float: right;
-	padding:0;
-	margin:0;
-	list-style: none;
-	position: relative;
-	}
-	
+    float: right;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+}
+
+
 /* Positioning the navigation items inline */
+
 nav ul li {
-	margin: 0px;
-	display:inline-block;
-	float: left;
-	}
+    margin: 0px;
+    display: inline-block;
+    float: left;
+}
+
 
 /* Styling the links */
+
 nav a {
     color: #ddd;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding-left: 0;
     padding-right: 0;
-	padding: 10px 13px;
+    padding: 10px 13px;
     font-weight: 400;
     font-size: 15px;
     vertical-align: middle;
 }
-nav ul li ul li:hover { background: #f8f9fa; }
+
+nav ul li ul li:hover {
+    background: #f8f9fa;
+}
+
 
 /* Background color change on Hover */
-nav a:hover { 
-	color: #ddd;
+
+nav a:hover {
+    color: #ddd;
 }
-.menu li.active  a{ 
-	color: #fff;
+
+.menu li.active a {
+    color: #fff;
 }
+
 
 /* Hide Dropdowns by Default
  * and giving it a position of absolute */
+
 nav ul ul {
-	display: none;
-	position: absolute; 
-	/* has to be the same number as the "line-height" of "nav a" */
-	top: 30px; 
+    display: none;
+    position: absolute;
+    /* has to be the same number as the "line-height" of "nav a" */
+    top: 30px;
     background: #fff;
     padding: 10px;
 }
-	
+
+
 /* Display Dropdowns on Hover */
-nav ul li:hover > ul {
-	display:inherit;
+
+nav ul li:hover>ul {
+    display: inherit;
 }
-	
+
+
 /* Fisrt Tier Dropdown */
+
 nav ul ul li {
-	width:170px;
-	float:none;
-	display:list-item;
-	position: relative;
+    width: 170px;
+    float: none;
+    display: list-item;
+    position: relative;
 }
+
 nav ul ul li a {
     color: #333;
     padding: 5px 10px;
     display: block;
 }
+
+
 /* Second, Third and more Tiers	
  * We move the 2nd and 3rd etc tier dropdowns to the left
  * by the amount of the width of the first tier.
 */
+
 nav ul ul ul li {
-	position: relative;
-	top:-60px;
-	/* has to be the same number as the "width" of "nav ul ul li" */ 
-	left:170px; 
+    position: relative;
+    top: -60px;
+    /* has to be the same number as the "width" of "nav ul ul li" */
+    left: 170px;
 }
 
+
 /* Change ' +' in order to change the Dropdown symbol */
-li > a:only-child:after { content: ''; }
+
+li>a:only-child:after {
+    content: '';
+}
 
 
 /* Media Queries
 --------------------------------------------- */
 
-@media all and (max-width : 991px) {
-
-	#logo {
-		display: block;
-		padding: 0;
-		width: 100%;
-		text-align: center;
-		float: none;
-	}
-	.menu li.active a {
-		color: #3369e7;
-	}
-	nav ul li span {
-		color: #333;
-	}
-	nav {
-		margin: 0;
-	}
-	nav a {
-		color: #333;
-	}
-
-	/* Hide the navigation menu by default */
-	/* Also hide the  */
-	.toggle + a,
-	.menu {
-		display: none;
-	}
-
-	/* Stylinf the toggle lable */
-	.toggle {
-		display: block;
-		padding: 5px 15px;
-		font-size: 20px;
-		text-decoration: none;
-		border: none;
-		float: right;
-		background-color: #3369e7;
-		color: #fff;
-		margin-bottom: 0;
-	}
-	.menu .toggle {
-		float: none;
-		text-align: center;
-		margin: auto;
-		width: 30%;
-		padding: 5px;
-		font-weight: normal;
-		font-size: 15px;
-		letter-spacing: 1px;
-	}
-
-	.toggle:hover {
-		color:#333;
-		background-color: #fff;
-	}
-
-	/* Display Dropdown when clicked on Parent Lable */
-	[id^=drop]:checked + ul {
-		display: block;
-		background: #fff;
-		padding: 15px 0;
-		width:100%;
-		text-align: center;
-	}
-
-	/* Change menu item's width to 100% */
-	nav ul li {
-		display: block;
-		width: 100%;
-		padding: 7px 0;
-		}
-	nav a{
-		padding: 5px 0;
-	}
-	nav a:hover {
-		color: #333;
-	}
-	.login-icon {
-		text-align: center;
-	}
-	nav ul ul .toggle,
-	nav ul ul a {
-		padding: 0 40px;
-	}
-
-	nav ul ul ul a {
-		padding: 0 80px;
-	}
-
-	nav a:hover,
- 	nav ul ul ul a {
-		background-color: transparent;
-	}
-  
-	nav ul li ul li .toggle,
-	nav ul ul a,
-	nav ul ul ul a{
-		padding:14px 20px;	
-		color:#FFF;
-		font-size:17px; 
-	}
-  
-  
-	nav ul li ul li .toggle,
-	nav ul ul a {
-		background-color: #fff; 
-	}
-	nav ul ul li a {
-		font-size: 15px;
-	}
-	ul.inner-ul{
-		padding: 0!important;
-	}
-	/* Hide Dropdowns by Default */
-	nav ul ul {
-		float: none;
-		position:static;
-		color: #ffffff;
-		/* has to be the same number as the "line-height" of "nav a" */
-	}
-		
-	/* Hide menus on hover */
-	nav ul ul li:hover > ul,
-	nav ul li:hover > ul {
-		display: none;
-	}
-		
-	/* Fisrt Tier Dropdown */
-	nav ul ul li {
-		display: block;
-		width: 100%;
-		padding: 0;
-	}
-
-	nav ul ul ul li {
-		position: static;
-		/* has to be the same number as the "width" of "nav ul ul li" */ 
-
-	}
-
+@media all and (max-width: 991px) {
+    #logo {
+        display: block;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        float: none;
+    }
+    .menu li.active a {
+        color: #3369e7;
+    }
+    nav ul li span {
+        color: #333;
+    }
+    nav {
+        margin: 0;
+    }
+    nav a {
+        color: #333;
+    }
+    /* Hide the navigation menu by default */
+    /* Also hide the  */
+    .toggle+a,
+    .menu {
+        display: none;
+    }
+    /* Stylinf the toggle lable */
+    .toggle {
+        display: block;
+        padding: 5px 15px;
+        font-size: 20px;
+        text-decoration: none;
+        border: none;
+        float: right;
+        background-color: #3369e7;
+        color: #fff;
+        margin-bottom: 0;
+    }
+    .menu .toggle {
+        float: none;
+        text-align: center;
+        margin: auto;
+        width: 30%;
+        padding: 5px;
+        font-weight: normal;
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+    .toggle:hover {
+        color: #333;
+        background-color: #fff;
+    }
+    /* Display Dropdown when clicked on Parent Lable */
+    [id^=drop]:checked+ul {
+        display: block;
+        background: #fff;
+        padding: 15px 0;
+        width: 100%;
+        text-align: center;
+    }
+    /* Change menu item's width to 100% */
+    nav ul li {
+        display: block;
+        width: 100%;
+        padding: 7px 0;
+    }
+    nav a {
+        padding: 5px 0;
+    }
+    nav a:hover {
+        color: #333;
+    }
+    .login-icon {
+        text-align: center;
+    }
+    nav ul ul .toggle,
+    nav ul ul a {
+        padding: 0 40px;
+    }
+    nav ul ul ul a {
+        padding: 0 80px;
+    }
+    nav a:hover,
+    nav ul ul ul a {
+        background-color: transparent;
+    }
+    nav ul li ul li .toggle,
+    nav ul ul a,
+    nav ul ul ul a {
+        padding: 14px 20px;
+        color: #FFF;
+        font-size: 17px;
+    }
+    nav ul li ul li .toggle,
+    nav ul ul a {
+        background-color: #fff;
+    }
+    nav ul ul li a {
+        font-size: 15px;
+    }
+    ul.inner-ul {
+        padding: 0!important;
+    }
+    /* Hide Dropdowns by Default */
+    nav ul ul {
+        float: none;
+        position: static;
+        color: #ffffff;
+        /* has to be the same number as the "line-height" of "nav a" */
+    }
+    /* Hide menus on hover */
+    nav ul ul li:hover>ul,
+    nav ul li:hover>ul {
+        display: none;
+    }
+    /* Fisrt Tier Dropdown */
+    nav ul ul li {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+    nav ul ul ul li {
+        position: static;
+        /* has to be the same number as the "width" of "nav ul ul li" */
+    }
 }
 
-@media all and (max-width : 330px) {
-
-	nav ul li {
-		display:block;
-		width: 94%;
-	}
-
+@media all and (max-width: 330px) {
+    nav ul li {
+        display: block;
+        width: 94%;
+    }
 }
+
 .user span.fa {
     font-size: 25px;
     color: #fff;
 }
+
+
 /*-- //header --*/
 
+
 /*-- banner --*/
+
 .banner {
     background: url(../images/banner.jpg)no-repeat center;
     -webkit-background-size: cover;
@@ -383,18 +651,22 @@ li > a:only-child:after { content: ''; }
     -ms-background-size: cover;
     background-size: cover;
 }
+
 .layer {
     background: rgba(0, 0, 0, 0.5);
 }
+
 .w3ls_banner_txt p {
     color: #eee;
     text-transform: capitalize;
     font-size: 15px;
 }
+
 .banner-text-w3pvt {
     padding: 17vw 0 11vw;
     box-sizing: border-box;
 }
+
 .banner-form-w3 {
     padding: 12vw 0 0vw;
     box-sizing: border-box;
@@ -403,6 +675,7 @@ li > a:only-child:after { content: ''; }
 h3.b-w3ltxt span {
     color: #fff;
 }
+
 h3.b-w3ltxt {
     font-size: 3.5em;
     color: #fff;
@@ -425,11 +698,15 @@ h4.b-w3ltxt {
     padding: 12px 30px;
     display: inline-block;
 }
-.btn-banner:hover  {
+
+.btn-banner:hover {
     color: #fff;
 }
 
-.form-style-w3ls input[type="text"], .form-style-w3ls input[type="email"], .form-style-w3ls input[type="password"],select {
+.form-style-w3ls input[type="text"],
+.form-style-w3ls input[type="email"],
+.form-style-w3ls input[type="password"],
+select {
     outline: none;
     font-size: 14px;
     border: none;
@@ -441,13 +718,14 @@ h4.b-w3ltxt {
     box-sizing: border-box;
     margin-bottom: 15px;
 }
+
 .form-style-w3ls button.btn {
     color: #fff;
     background: #3369e7;
     border: none;
     padding: 14px 0;
     outline: none;
-	border-radius: 0;
+    border-radius: 0;
     width: 100%;
     font-size: 15px;
     cursor: pointer;
@@ -458,26 +736,34 @@ h4.b-w3ltxt {
     -ms-transition: 0.5s all;
     transition: 0.5s all;
 }
+
 .form-style-w3ls input[type="submit"]:hover {
     background: #dc3545;
 }
+
 .padding {
     padding: 2.5em;
-	background: #fff;
+    background: #fff;
 }
+
 .form-style-w3ls span {
     font-size: 13px;
     color: #666;
 }
+
 .form-style-w3ls span a {
     color: #3369e7;
 }
+
 
 /*-- //banner --*/
 
 
 /*-- banner bottom --*/
+
+
 /* girds */
+
 .three-grids-w3pvt-1 {
     background: url(../images/bb.jpg) no-repeat center;
     background-size: cover;
@@ -486,11 +772,14 @@ h4.b-w3ltxt {
     -o-background-size: cover;
     -ms-background-size: cover;
     min-height: 300px;
-	position: relative;
+    position: relative;
     z-index: 1;
 }
 
-.three-grids-w3pvt-1:before,.three-grids-w3pvt-2:before,.three-grids-w3pvt-3:before,.three-grids-w3pvt-4:before {
+.three-grids-w3pvt-1:before,
+.three-grids-w3pvt-2:before,
+.three-grids-w3pvt-3:before,
+.three-grids-w3pvt-4:before {
     content: '';
     position: absolute;
     width: 100%;
@@ -510,7 +799,7 @@ h4.b-w3ltxt {
     -o-background-size: cover;
     -ms-background-size: cover;
     min-height: 300px;
-	position: relative;
+    position: relative;
     z-index: 1;
 }
 
@@ -522,9 +811,10 @@ h4.b-w3ltxt {
     -o-background-size: cover;
     -ms-background-size: cover;
     min-height: 300px;
-	position: relative;
+    position: relative;
     z-index: 1;
 }
+
 .three-grids-w3pvt-4 {
     background: url(../images/bg3.jpg) no-repeat center;
     background-size: cover;
@@ -533,7 +823,7 @@ h4.b-w3ltxt {
     -o-background-size: cover;
     -ms-background-size: cover;
     min-height: 300px;
-	position: relative;
+    position: relative;
     z-index: 1;
 }
 
@@ -543,55 +833,66 @@ h4.b-w3ltxt {
 
 .text-effect-wthree h5 {
     font-size: 22px;
-	color: #fff;
+    color: #fff;
 }
 
 .text-effect-wthree p {
     font-size: 15px;
-	color: #ccc;
+    color: #ccc;
 }
+
 .ser-img span.fa {
     font-size: 40px;
     color: #000;
 }
+
+
 /* //girds */
 
-h2.heading{
+h2.heading {
     font-size: 30px;
     text-transform: capitalize;
     color: #333;
     font-weight: 600;
 }
 
+
 /*-- banner bottom --*/
 
 
 /*-- services --*/
+
 .mb-60 {
     margin-bottom: 60px;
 }
+
 .services-inner {
     border: 2px solid #3369e7;
     margin-left: 35px;
     transition: .3s;
     background: #fff
 }
+
 .our-services-img {
     float: left;
     margin-left: -36px;
     margin-right: 22px;
     margin-top: 28px;
 }
+
 .our-services-img img {
     width: 68px;
 }
+
 .our-services-text {
     padding-right: 10px;
 }
+
 .our-services-text {
     overflow: hidden;
     padding: 28px 0 25px;
 }
+
 .our-services-text h4 {
     color: #222222;
     font-size: 18px;
@@ -602,6 +903,7 @@ h2.heading{
     position: relative;
     text-transform: uppercase;
 }
+
 .position-image img {
     position: absolute;
     top: 16%;
@@ -610,6 +912,7 @@ h2.heading{
     width: 20%;
     z-index: -1;
 }
+
 .our-services-text h4::before {
     background: #3369e7 none repeat scroll 0 0;
     bottom: 0;
@@ -618,28 +921,34 @@ h2.heading{
     position: absolute;
     width: 40px;
 }
+
 .our-services-wrapper:hover .services-inner {
     background: #fff none repeat scroll 0 0;
     border: 2px solid transparent;
     box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
 }
+
 .our-services-text p {
     margin-bottom: 0;
 }
+
 .services p {
     font-size: 14px;
     font-weight: 400;
     line-height: 26px;
     color: #666;
 }
-.services  {
+
+.services {
     position: relative;
     z-index: 2;
 }
+
+
 /*-- //services-- */
 
 
-/*-- team --*/ 
+/*-- team --*/
 
 .team-info {
     padding: 20px 20px 0;
@@ -651,14 +960,16 @@ h2.heading{
     color: #222;
 }
 
-.team-info span{
+.team-info span {
     margin-top: .5em;
     font-size: .8em;
     text-transform: uppercase;
     color: #888;
     letter-spacing: 1px;
 }
-/*-- //team --*/ 
+
+
+/*-- //team --*/
 
 
 /*-- stats --*/
@@ -671,7 +982,7 @@ h3.heading {
 }
 
 .section-stats {
-    background: #3369e7;
+    background: white;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -679,11 +990,15 @@ h3.heading {
     -ms-background-size: cover;
     position: relative;
 }
-.section-stats h3.heading,.testimonials h3.heading{
-	color: #fff;
-}
-p.counter {
+
+
+/* .section-stats h3.heading,
+.testimonials h3.heading {
     color: #fff;
+} */
+
+p.counter {
+    color: rgb(187, 181, 181);
     font-size: 2.5em;
     letter-spacing: 1px;
 }
@@ -692,10 +1007,12 @@ p.counter {
     font-size: 15px;
     letter-spacing: .5px;
 }
-p.para-text-w3ls{
+
+p.para-text-w3ls {
     font-size: 15px;
-	color: #ccc;
+    color: #ccc;
 }
+
 .w3layouts_stats_left i {
     font-size: 30px;
     color: #fff;
@@ -705,18 +1022,13 @@ p.para-text-w3ls{
     border-radius: 50%;
     line-height: 70px;
 }
-.text-stat h4 {
-    font-size: 22px;
-    color: #ddd;
-    line-height: 35px;
-    padding: 1em;
-    border: 8px solid #aaa;
-}
-.w3layouts_stats_left{
+
+.w3layouts_stats_left {
     box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
     border: 1px solid #fff;
     padding: 2em 0 !important;
 }
+
 .stats-icon {
     background: #333;
     width: 70px;
@@ -729,14 +1041,17 @@ p.para-text-w3ls{
     line-height: 70px;
     margin: auto;
 }
+
 .w3layouts_stats_left span.fa {
     color: #fff;
     font-size: 25px;
     line-height: 70px;
 }
-.w3layouts_stats_left:hover{
-	border: 1px solid transparent !important;
+
+.w3layouts_stats_left:hover {
+    border: 1px solid transparent !important;
 }
+
 
 /*-- //stats --*/
 
@@ -747,6 +1062,7 @@ p.para-text-w3ls{
     color: #888;
     font-size: 15px;
 }
+
 .info h4 {
     color: #222222;
     font-size: 20px;
@@ -755,16 +1071,21 @@ p.para-text-w3ls{
     position: relative;
     text-transform: uppercase;
 }
-.info img{
-	width:50px;
+
+.info img {
+    width: 50px;
 }
-.info{
-	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+
+.info {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
+
+
 /*-- //other services --*/
 
 
 /* -- testimonials --*/
+
 .testimonials {
     background: url(../images/testimonials.jpg)no-repeat 0px 0px;
     -webkit-background-size: cover;
@@ -773,6 +1094,7 @@ p.para-text-w3ls{
     -ms-background-size: cover;
     background-size: cover;
 }
+
 .testi-info-text h4 {
     color: #fff;
     font-size: 23px;
@@ -780,6 +1102,7 @@ p.para-text-w3ls{
     margin: 0em 0 0em;
     letter-spacing: 2px;
 }
+
 .testi-info-text p {
     letter-spacing: 1px;
     width: 100%;
@@ -789,6 +1112,7 @@ p.para-text-w3ls{
     padding: 1em 1em;
     font-size: 15px;
 }
+
 .testi-pos h4 {
     text-transform: uppercase;
     font-size: 1em;
@@ -796,10 +1120,13 @@ p.para-text-w3ls{
     font-weight: 600;
     letter-spacing: 2px;
 }
+
+
 /* -- //testimonials --*/
 
 
 /*-- subscribe --*/
+
 subscribe form {
     border: 1px solid #808080;
     width: 80%;
@@ -807,7 +1134,7 @@ subscribe form {
 }
 
 footer {
-    background: url(../images/footer.jpg)no-repeat center;
+    background: url(data:image/jpeg;base64,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)no-repeat center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -818,22 +1145,27 @@ footer {
 .footer-layer {
     background: rgba(0, 0, 0, 0.8);
 }
+
 .footer-grid_section {
     width: 70%;
     margin: auto;
 }
+
 .footer-title a {
     font-size: 33px;
     text-transform: capitalize;
     font-weight: 600;
     color: #eee;
 }
-.footer-text p{
+
+.footer-text p {
     color: #aaa;
 }
+
 ul.social_section_1info {
     margin-top: 20px;
 }
+
 ul.social_section_1info li {
     display: inline-block;
 }
@@ -845,11 +1177,11 @@ ul.social_section_1info a {
     display: block;
     text-align: center;
     line-height: 40px;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	-ms-border-radius: 50%;
-	-o-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 ul.social_section_1info a span.fa {
@@ -857,38 +1189,48 @@ ul.social_section_1info a span.fa {
     color: #ccc;
     line-height: 40px;
 }
+
 ul.links li {
     display: inline-block;
     padding: 0 10px;
 }
-ul.links  a ,.copy-right p,.copy-right p a{
+
+ul.links a,
+.copy-right p,
+.copy-right p a {
     color: #777;
     letter-spacing: 1px;
     text-transform: capitalize;
 }
+
 .copyright {
     background: #111;
 }
+
 .copy-right {
     text-align: right;
 }
-.copy-right p a:hover{
+
+.copy-right p a:hover {
     color: #fff;
 }
+
 .image {
     width: 20%;
 }
+
 .subscribe form input[type="email"] {
     outline: none;
     padding: 15px 25px;
     color: #333;
     font-size: 14px;
-	text-transform: capitalize;
+    text-transform: capitalize;
     width: 90%;
     border: none;
     background: #fff;
     letter-spacing: 1px;
 }
+
 .subscribe button.btn1 {
     color: #fff;
     border: none;
@@ -911,29 +1253,37 @@ ul.links  a ,.copy-right p,.copy-right p a{
     width: 80%;
     margin-top: 10px;
 }
+
 .subscribe h3 {
     font-size: 40px;
     color: #fff;
     letter-spacing: 1px;
 }
+
 .subscribe-left {
-	background: #3369e7;
+    background: #3369e7;
 }
+
 .subscribe-right {
     background: #dc3545;
 }
+
 .subscribe-right p {
     color: #eee;
 }
+
 .news-icon {
     width: 20%;
-	text-align: center;
+    text-align: center;
 }
+
 .news-icon span.fa {
     color: #fff;
     font-size: 55px;
     margin-top: 20px;
 }
+
+
 /*-- //subscribe --*/
 
 
@@ -950,7 +1300,7 @@ a.move-top {
     bottom: 0%;
 }
 
-a.move-top span{
+a.move-top span {
     color: #fff;
     width: 36px;
     height: 36px;
@@ -964,6 +1314,7 @@ a.move-top span{
     -ms-border-radius: 50px;
 }
 
+
 /*-- //move top --*/
 
 
@@ -971,442 +1322,465 @@ a.move-top span{
 
 @media(max-width:1440px) {
     .position-image img {
-		top: 23%;
-	}
+        top: 23%;
+    }
 }
+
 @media(max-width:1080px) {
     .navbar-light .navbar-nav .nav-link {
-		padding: 0 0px 5px;
-	}
-	h3.b-w3ltxt {
-		font-size: 3em;
-	}
-	h4.b-w3ltxt {
-		font-size: 2.8em;
-	}
-	.banner-form-w3 h5 {
-		font-size: 17px;
-	}
-	.our-services-img {
-		margin-right: 8px;
-	}
-	.our-services-text h4 {
-		font-size: 17px;
-		letter-spacing: .5px;
-	}
-	.our-services-img img {
-		width: 62px;
-	}
-	.info h4 {
-		font-size: 18px;
-	}
-	.info img {
-		width: 42px;
-	}
-	.footer-grid_section {
-		width: 75%;
-	}
-	ul.links a, .copy-right p, .copy-right p a {
-		letter-spacing: 0.5px;
-	}
+        padding: 0 0px 5px;
+    }
+    h3.b-w3ltxt {
+        font-size: 3em;
+    }
+    h4.b-w3ltxt {
+        font-size: 2.8em;
+    }
+    .banner-form-w3 h5 {
+        font-size: 17px;
+    }
+    .our-services-img {
+        margin-right: 8px;
+    }
+    .our-services-text h4 {
+        font-size: 17px;
+        letter-spacing: .5px;
+    }
+    .our-services-img img {
+        width: 62px;
+    }
+    .info h4 {
+        font-size: 18px;
+    }
+    .info img {
+        width: 42px;
+    }
+    .footer-grid_section {
+        width: 75%;
+    }
+    ul.links a,
+    .copy-right p,
+    .copy-right p a {
+        letter-spacing: 0.5px;
+    }
     .banner-text-w3pvt {
-		padding: 19vw 0 15vw;
-	}
-	.banner-form-w3 {
-		padding: 15vw 0 0vw;
-	}
-	.padding {
-		padding: 2em;
-	}
-	nav a {
-		padding: 10px 10px;
-		font-size: 14px;
-	}
-	#logo a {
-		font-size: .6em;
-	}
-	#logo img, .footer-title img {
-		width: 45px;
-	}
-	.footer-title a {
-		font-size: 28px;
-	}
-	.subscribe h3 {
-		font-size: 34px;
-	}
+        padding: 19vw 0 15vw;
+    }
+    .banner-form-w3 {
+        padding: 15vw 0 0vw;
+    }
+    .padding {
+        padding: 2em;
+    }
+    nav a {
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+    #logo a {
+        font-size: .6em;
+    }
+    #logo img,
+    .footer-title img {
+        width: 45px;
+    }
+    .footer-title a {
+        font-size: 28px;
+    }
+    .subscribe h3 {
+        font-size: 34px;
+    }
 }
+
 @media(max-width:1024px) {
-	p.counter {
-		font-size: 2em;
-	}
-	.testi-info-text h4 {
-		font-size: 20px;
-		letter-spacing: 1px;
-	}
+    p.counter {
+        font-size: 2em;
+    }
+    .testi-info-text h4 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
 }
+
 @media(max-width:991px) {
     .banner-text-w3pvt {
-		padding: 19vw 0 8vw;
-	}
-	.banner-form-w3 {
-		padding: 0vw 0 10vw;
-	}    
-	.testi-info-text p {
-		padding: 1em 0em;
-		font-size: 14.5px;
-	}
-	.footer-grid_section {
-		width: 100%;
-	}
-	.links{
-		text-align: center;
-	}
-	.copy-right {
-		text-align: center;
-		margin-top: 10px
-	}
-	.subscribe form {
-		width: 90%;
-	}
-	.bottom-grids .col-md-3 {
-		padding: 0 5px;
-	}
-	.text-effect-wthree h5 {
-		font-size: 19px;
-	}
-	.team-grid {
-		padding: 5px;
-	}
-	.team-info h3 {
-		font-size: 1.2em;
-	}
-	.image {
-		width: 5%;
-	}
+        padding: 19vw 0 8vw;
+    }
+    .banner-form-w3 {
+        padding: 0vw 0 10vw;
+    }
+    .testi-info-text p {
+        padding: 1em 0em;
+        font-size: 14.5px;
+    }
+    .footer-grid_section {
+        width: 100%;
+    }
+    .links {
+        text-align: center;
+    }
+    .copy-right {
+        text-align: center;
+        margin-top: 10px
+    }
+    .subscribe form {
+        width: 90%;
+    }
+    .bottom-grids .col-md-3 {
+        padding: 0 5px;
+    }
+    .text-effect-wthree h5 {
+        font-size: 19px;
+    }
+    .team-grid {
+        padding: 5px;
+    }
+    .team-info h3 {
+        font-size: 1.2em;
+    }
+    .image {
+        width: 5%;
+    }
 }
+
 @media(max-width:900px) {
-	.subscribe h3 {
-		font-size: 30px;
-	}
-	h2.heading {
-		font-size: 27px;
-	}
-	h3.heading {
-		font-size: 35px;
-	}
+    .subscribe h3 {
+        font-size: 30px;
+    }
+    h2.heading {
+        font-size: 27px;
+    }
+    h3.heading {
+        font-size: 35px;
+    }
 }
+
 @media(max-width:768px) {
     .subscribe h3 {
-		font-size: 30px;
-	}
-	.footer-title a {
-		font-size: 27px;
-	}
-	.testi-info-text h4 {
-		font-size: 20px;
-		letter-spacing: 1px;
-	}
-	h3.heading {
-		font-size: 35px;
-	}
-	.w3layouts_stats_left i {
-		font-size: 20px;
-	}
-	.banner-text-w3pvt {
-		padding: 19vw 8vw 8vw;
-	}
-	.banner-form-w3 {
-		padding: 0vw 0vw 10vw 8vw;
-	} 
-	.banner {
-		background: url(../images/banner.jpg)no-repeat -130px 0px;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		-ms-background-size: cover;
-		background-size: cover;
-	}
+        font-size: 30px;
+    }
+    .footer-title a {
+        font-size: 27px;
+    }
+    .testi-info-text h4 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    h3.heading {
+        font-size: 35px;
+    }
+    .w3layouts_stats_left i {
+        font-size: 20px;
+    }
+    .banner-text-w3pvt {
+        padding: 19vw 8vw 8vw;
+    }
+    .banner-form-w3 {
+        padding: 0vw 0vw 10vw 8vw;
+    }
+    .banner {
+        background: url(../images/banner.jpg)no-repeat -130px 0px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        -ms-background-size: cover;
+        background-size: cover;
+    }
 }
+
 @media(max-width:736px) {
-    
-	h3.b-w3ltxt {
-		font-size: 2.8em;
-	}
-	h4.b-w3ltxt {
-		font-size: 2.5em;
-	}
-	.image {
-		width: 7%;
-	}
-	.img1 h3 {
-		font-size: 22px;
-	}
-	ul.callbacks_tabs {
-		position: absolute;
-		bottom: -25px;
-	}
-	.banner-text-w3pvt {
-		padding: 22vw 0vw 8vw;
-	}
-	.banner-form-w3 {
-		padding: 0vw 0vw 10vw;
-	}  
-	.carousel-item p {
-		font-size: 14px;
-	}
-	.ser-img img {
-		width: 70px;
-	}
-	.team-grid {
-		padding: 0 15px;
-	}
-	h2.heading {
-		font-size: 23px;
-	}
+    h3.b-w3ltxt {
+        font-size: 2.8em;
+    }
+    h4.b-w3ltxt {
+        font-size: 2.5em;
+    }
+    .image {
+        width: 7%;
+    }
+    .img1 h3 {
+        font-size: 22px;
+    }
+    ul.callbacks_tabs {
+        position: absolute;
+        bottom: -25px;
+    }
+    .banner-text-w3pvt {
+        padding: 22vw 0vw 8vw;
+    }
+    .banner-form-w3 {
+        padding: 0vw 0vw 10vw;
+    }
+    .carousel-item p {
+        font-size: 14px;
+    }
+    .ser-img img {
+        width: 70px;
+    }
+    .team-grid {
+        padding: 0 15px;
+    }
+    h2.heading {
+        font-size: 23px;
+    }
 }
+
 @media(max-width:667px) {
-    
-	h3.b-w3ltxt {
-		font-size: 2.5em;
-	}
-	h4.b-w3ltxt {
-		font-size: 2.2em;
-	}
+    h3.b-w3ltxt {
+        font-size: 2.5em;
+    }
+    h4.b-w3ltxt {
+        font-size: 2.2em;
+    }
 }
+
 @media(max-width:568px) {
-    
-	.banner-text-w3pvt {
-		padding: 22vw 8vw 8vw;
-	}
-	.banner-form-w3 {
-		padding: 0vw 8vw 10vw 8vw;
-	}  
-	.position-image img {
-		position: static;
-		width: auto;
-	}
-	.banner-bottom p {
-		font-size: 15px;
-	}
-	.subscribe h3 {
-		font-size: 25px;
-	}
-	ul.banner_slide_bg .container-fluid {
-		padding: 0;
-	}
-	.csslider>.navigation {
-		left: -1% !important;
-	}
-	.team-grid {
-		padding: 0 15px;
-		width: 50%;
-	}
-	.csslider>.navigation label,.csslider>.navigation label:after {
-		height: 4px !important;
-	}
-	.w3ls_banner_txt p {
-		font-size: 14px;
-	}
+    .banner-text-w3pvt {
+        padding: 22vw 8vw 8vw;
+    }
+    .banner-form-w3 {
+        padding: 0vw 8vw 10vw 8vw;
+    }
+    .position-image img {
+        position: static;
+        width: auto;
+    }
+    .banner-bottom p {
+        font-size: 15px;
+    }
+    .subscribe h3 {
+        font-size: 25px;
+    }
+    ul.banner_slide_bg .container-fluid {
+        padding: 0;
+    }
+    .csslider>.navigation {
+        left: -1% !important;
+    }
+    .team-grid {
+        padding: 0 15px;
+        width: 50%;
+    }
+    .csslider>.navigation label,
+    .csslider>.navigation label:after {
+        height: 4px !important;
+    }
+    .w3ls_banner_txt p {
+        font-size: 14px;
+    }
 }
+
 @media(max-width:480px) {
     h3.heading {
-		font-size: 34px;
-	}
-	h3.b-w3ltxt {
-		font-size: 2.2em;
-	}
-	h4.b-w3ltxt {
-		font-size: 2em;
-		letter-spacing: 2px;
-	}
-	.banner-text-w3pvt {
-		padding: 28vw 8vw 8vw;
-	}
-	h2.heading {
-		font-size: 26px;
-		line-height: 28px;
-	}
-	.right-p li, .right-p li a {
-		font-size: 14px;
-		letter-spacing: 1px;
-	}
-	.subscribe form {
-		width: 100%;
-	}
-	.btn-banner {
-		font-size: 15px;
-		padding: 10px 25px;
-	}
-	.stats-icon {
-		width: 65px;
-		height: 65px;
-		line-height: 65px;
-	}
-	.w3layouts_stats_left span.fa {
-		font-size: 20px;
-		line-height: 65px;
-	}
-	.csslider>.navigation {
-		bottom: 0% !important;
-	}
-	ul.links a, .copy-right p, .copy-right p a {
-		letter-spacing: 1px;
-	}
-	.banner {
-		background: url(../images/banner.jpg)no-repeat -230px 0px;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		-ms-background-size: cover;
-		background-size: cover;
-	}
+        font-size: 34px;
+    }
+    h3.b-w3ltxt {
+        font-size: 2.2em;
+    }
+    h4.b-w3ltxt {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+    .banner-text-w3pvt {
+        padding: 28vw 8vw 8vw;
+    }
+    h2.heading {
+        font-size: 26px;
+        line-height: 28px;
+    }
+    .right-p li,
+    .right-p li a {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+    .subscribe form {
+        width: 100%;
+    }
+    .btn-banner {
+        font-size: 15px;
+        padding: 10px 25px;
+    }
+    .stats-icon {
+        width: 65px;
+        height: 65px;
+        line-height: 65px;
+    }
+    .w3layouts_stats_left span.fa {
+        font-size: 20px;
+        line-height: 65px;
+    }
+    .csslider>.navigation {
+        bottom: 0% !important;
+    }
+    ul.links a,
+    .copy-right p,
+    .copy-right p a {
+        letter-spacing: 1px;
+    }
+    .banner {
+        background: url(../images/banner.jpg)no-repeat -230px 0px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        -ms-background-size: cover;
+        background-size: cover;
+    }
 }
+
 @media(max-width:414px) {
     h4.b-w3ltxt {
-		font-size: 1.8em;
-		letter-spacing: 1px;
-	}
-	.navbar-toggler {
-		padding: 0.2rem 0.7rem;
-	}
-	.w3layouts_stats_left i {
-		font-size: 16px;
-		width: 60px;
-		height: 60px;
-		line-height: 60px;
-	}
-	p.counter {
-		font-size: 2em;
-	}
-	.teamy {
-		width: 49.5%;
-	}
-	.teamy__name {
-		font-size: 1.2em;
-	}
-	.social {
-		width: 38px;
-		height: 38px;
-		margin: 2px;
-		font-size: 13px;
-	}
-	p.para-text-w3ls {
-		font-size: 13px;
-	}
-	.subscribe form input[type="email"] {
-		width: 85%;
-	}
-	.subscribe button.btn1 {
-		width: 15%;
-	}
-	ul.links a, .copy-right p, .copy-right p a {
-		font-size: 15px;
-	}
-	.image {
-		width: 20%;
-	}
-	.ser-img img {
-		width: 65px;
-	}
-	.copyright {
-		padding: 0 1em;
-	}
-	ul.links a, .copy-right p, .copy-right p a {
-		font-size: 14px;
-	}
-	.footer-title a {
-		font-size: 22px;
-	}
-	.subscribe h3 {
-		font-size: 22px;
-	}
-	.team-grid {
-		padding: 0 10px;
-	}
-	h3.heading {
-		font-size: 28px;
-	}
-	p.para-text-w3ls {
-		font-size: 14px;
-	}
-	h3.b-w3ltxt {
-		font-size: 2em;
-	}
-	h4.b-w3ltxt {
-		font-size: 1.8em;
-		letter-spacing: 1px;
-	}
-	#logo img, .footer-title img {
-		width: 35px;
-	}
-	.section-stats .col-lg-3 {
-		padding: 0 7px;
-	}
-	nav ul li {
-		padding: 5px 0;
-	}
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+    .navbar-toggler {
+        padding: 0.2rem 0.7rem;
+    }
+    .w3layouts_stats_left i {
+        font-size: 16px;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+    }
+    p.counter {
+        font-size: 2em;
+    }
+    .teamy {
+        width: 49.5%;
+    }
+    .teamy__name {
+        font-size: 1.2em;
+    }
+    .social {
+        width: 38px;
+        height: 38px;
+        margin: 2px;
+        font-size: 13px;
+    }
+    p.para-text-w3ls {
+        font-size: 13px;
+    }
+    .subscribe form input[type="email"] {
+        width: 85%;
+    }
+    .subscribe button.btn1 {
+        width: 15%;
+    }
+    ul.links a,
+    .copy-right p,
+    .copy-right p a {
+        font-size: 15px;
+    }
+    .image {
+        width: 20%;
+    }
+    .ser-img img {
+        width: 65px;
+    }
+    .copyright {
+        padding: 0 1em;
+    }
+    ul.links a,
+    .copy-right p,
+    .copy-right p a {
+        font-size: 14px;
+    }
+    .footer-title a {
+        font-size: 22px;
+    }
+    .subscribe h3 {
+        font-size: 22px;
+    }
+    .team-grid {
+        padding: 0 10px;
+    }
+    h3.heading {
+        font-size: 28px;
+    }
+    p.para-text-w3ls {
+        font-size: 14px;
+    }
+    h3.b-w3ltxt {
+        font-size: 2em;
+    }
+    h4.b-w3ltxt {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+    #logo img,
+    .footer-title img {
+        width: 35px;
+    }
+    .section-stats .col-lg-3 {
+        padding: 0 7px;
+    }
+    nav ul li {
+        padding: 5px 0;
+    }
 }
+
 @media(max-width:384px) {
-    .right-p li, .right-p li a {
-		font-size: 13px;
-		letter-spacing: .5px;
-	}
-	.banner-text-w3pvt {
-		padding: 33vw 7vw 8vw;
-	}
-	h3.b-w3ltxt {
-		font-size: 2em;
-	}
-	h4.b-w3ltxt {
-		font-size: 1.6em;
-		letter-spacing: 1px;
-	}
-	.btn-banner {
-		font-size: 14px;
-		letter-spacing: 1px;
-		padding: 10px 25px;
-	}
-	.padding {
-		padding: 2em;
-	}
-	.banner-form-w3 {
-		padding: 0vw 7vw 10vw 7vw;
-	}
-	h2.heading {
-		font-size: 21px;
-	}
-	h3.heading {
-		font-size: 30px;
-	}
-	.teamy__content {
-		padding: 20px 10px;
-	}
-	.footer-text p {
-		font-size: 14px;
-	}
-	ul.links a, .copy-right p, .copy-right p a {
-		font-size: 14px;
-	}
-	.image {
-		width: 25%;
-	}
-	.subscribe h3 {
-		font-size: 25px;
-	}
-	.ser-img {
-		padding-right: 0;
-	}
-	.team-info h3 {
-		font-size: 1em;
-	}
-	.team-info span {
-		font-size: .7em;
-	}
+    .right-p li,
+    .right-p li a {
+        font-size: 13px;
+        letter-spacing: .5px;
+    }
+    .banner-text-w3pvt {
+        padding: 33vw 7vw 8vw;
+    }
+    h3.b-w3ltxt {
+        font-size: 2em;
+    }
+    h4.b-w3ltxt {
+        font-size: 1.6em;
+        letter-spacing: 1px;
+    }
+    .btn-banner {
+        font-size: 14px;
+        letter-spacing: 1px;
+        padding: 10px 25px;
+    }
+    .padding {
+        padding: 2em;
+    }
+    .banner-form-w3 {
+        padding: 0vw 7vw 10vw 7vw;
+    }
+    h2.heading {
+        font-size: 21px;
+    }
+    h3.heading {
+        font-size: 30px;
+    }
+    .teamy__content {
+        padding: 20px 10px;
+    }
+    .footer-text p {
+        font-size: 14px;
+    }
+    ul.links a,
+    .copy-right p,
+    .copy-right p a {
+        font-size: 14px;
+    }
+    .image {
+        width: 25%;
+    }
+    .subscribe h3 {
+        font-size: 25px;
+    }
+    .ser-img {
+        padding-right: 0;
+    }
+    .team-info h3 {
+        font-size: 1em;
+    }
+    .team-info span {
+        font-size: .7em;
+    }
 }
-@media(max-width:375px) {
-    
-}
-@media(max-width:320px) {
-    
-}
+
+@media(max-width:375px) {}
+
+@media(max-width:320px) {}
+
+
 /*-- //responsive design --*/
